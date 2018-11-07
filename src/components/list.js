@@ -1,31 +1,12 @@
 import React, {Component} from 'react';
-import listData from '../dummy_data/list';
+
 
 class List extends Component{
-    constructor(props) {
-        super(props);
-        this.state={
-            list: []
-        }
-    }
-
-    componentDidMount() {
-        this.getListData();
-    }
-
-    getListData(){
-        this.setState({
-            list: listData
-        })
-    }
-
-
-
 
     render(){
-        console.log('State:', this.state)
+        console.log('Props:', this.props.data)
 
-        const listElements = this.state.list.map((item,index)=>{
+        const listElements = this.props.data.map((item,index)=>{
             return <li className='collection-item' key= {item._id}>{item.title}</li>;
         })
         return(
